@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Users</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='view_user.css') }}">
+    <script src="{{ url_for('static', filename='view_user.js') }}" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Users</h1>
+        <a href="{{ url_for('home') }}" class="back-btn">Back to Home</a>
+
+        {% if users %}
+        <table class="user-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Email</th>
+                    <!-- Add other user fields here -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.email }}</td>
+                    <!-- Render other user fields here -->
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p class="no-users">No users found.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

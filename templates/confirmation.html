@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Confirmation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>✅ Appointment Confirmed!</h1>
+        <p><strong>Patient Name:</strong> {{ name }}</p>
+        <p><strong>Email:</strong> {{ email }}</p>
+        <p><strong>Phone:</strong> {{ phone }}</p>
+        <p><strong>Doctor:</strong> {{ doctor_name }}</p>
+        <p><strong>Date:</strong> {{ date }}</p>
+        <p><strong>Time:</strong> {{ time }}</p>
+        
+        <p>📩 You will receive a confirmation email shortly.</p>
+
+        <a href="/" class="btn">🏠 Home</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Training Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='view_training_data.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Training Data Records</h1>
+        <table id="trainingDataTable">
+            <thead>
+                <tr>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Cholesterol</th>
+                    <th>Blood Pressure</th>
+                    <th>Heart Rate</th>
+                    <th>Smoking</th>
+                    <th>Alcohol</th>
+                    <th>Exercise</th>
+                    <th>Family History</th>
+                    <th>Diabetes</th>
+                    <th>Obesity</th>
+                    <th>Stress</th>
+                    <th>Blood Sugar</th>
+                    <th>Angina</th>
+                    <th>Chest Pain</th>
+                    <th>Target</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for data in training_data %}
+                <tr>
+                    <td>{{ data.age }}</td>
+                    <td>{{ data.gender }}</td>
+                    <td>{{ data.cholesterol }}</td>
+                    <td>{{ data.blood_pressure }}</td>
+                    <td>{{ data.heart_rate }}</td>
+                    <td>{{ data.smoking }}</td>
+                    <td>{{ data.alcohol }}</td>
+                    <td>{{ data.exercise }}</td>
+                    <td>{{ data.family_history }}</td>
+                    <td>{{ data.diabetes }}</td>
+                    <td>{{ data.obesity }}</td>
+                    <td>{{ data.stress }}</td>
+                    <td>{{ data.blood_sugar }}</td>
+                    <td>{{ data.angina }}</td>
+                    <td>{{ data.chest_pain }}</td>
+                    <td>{{ data.target }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/view_training_data.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Feedback</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='view_feedback.css') }}">
+</head>
+<body>
+    <h1>Feedback from Users</h1>
+    {% if feedbacks %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Email</th>
+                    <th>Message</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for feedback in feedbacks %}
+                <tr>
+                    <td>{{ feedback.id }}</td>
+                    <td>{{ feedback.email }}</td>
+                    <td>{{ feedback.message }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p style="text-align:center;">No feedbacks found.</p>
+    {% endif %}
+
+    <script src="{{ url_for('static', filename='view_feedback.js') }}"></script>
+
+</body>
+</html>

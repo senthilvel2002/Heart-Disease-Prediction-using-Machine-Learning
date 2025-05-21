@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Accuracy - Heart Disease Prediction</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='model_accuracy.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Heart Disease Prediction Model Accuracy</h1>
+
+        <div class="charts">
+            <div class="chart-container">
+                <canvas id="heatmapChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="f1ScoreChart"></canvas>
+            </div>
+        </div>
+
+        <div class="charts">
+            <div class="chart-container">
+                <canvas id="pieChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="barChart"></canvas>
+            </div>
+        </div>
+
+        <a href="{{ url_for('home') }}" class="btn">Back to Home</a>
+    </div>
+
+    <script src="{{ url_for('static', filename='model_accuracy.js') }}"></script>
+</body>
+</html>

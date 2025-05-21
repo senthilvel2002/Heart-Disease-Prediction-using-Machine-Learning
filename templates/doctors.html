@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctors List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Available Doctors</h1>
+
+        <div class="doctor_list">
+            {% if doctors %}
+                {% for doctor in doctors %}
+                <div class="doctor-card">
+                    <h2>{{ doctor.name }}</h2>
+                    <p>Specialization: {{ doctor.specialization }}</p>
+                    <p>Location: {{ doctor.location }}</p>
+                    <a href="/book_appointment/{{ doctor.id }}">Book Appointment</a>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p>No doctors available at the moment.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

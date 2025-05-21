@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Feedback - Heart Disease Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='feedback.css') }}">
+</head>
+<body>
+    <div class="feedback-container">
+        <h1>📝 Share Your Feedback</h1>
+        <form method="POST" action="{{ url_for('feedback') }}" id="feedbackForm">
+            <div class="input-group">
+                <label for="user_email">Your Email</label>
+                <input type="email" id="user_email" name="email" required>
+            </div>
+            <div class="input-group">
+                <label for="feedback_text">Your Feedback</label>
+                <textarea id="feedback_text" name="message" rows="6" required></textarea>
+            </div>
+            <button type="submit" class="btn">Submit Feedback</button>
+            <p id="feedback-message" class="success-message"></p>
+        </form>
+        <a href="{{ url_for('home') }}" class="back-home">← Back to Home</a>
+    </div>
+
+    <script src="{{ url_for('static', filename='feedback.js') }}"></script>
+</body>
+</html>

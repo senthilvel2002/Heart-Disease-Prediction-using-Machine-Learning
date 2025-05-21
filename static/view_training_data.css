@@ -1,0 +1,84 @@
+/* Global Reset and Font */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #ece9e6, #ffffff);
+    color: #333;
+  }
+  
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    color: #2a2a72;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px #ccc;
+  }
+  
+  /* Back Button */
+  .back-btn {
+    display: inline-block;
+    margin-bottom: 25px;
+    padding: 10px 20px;
+    background-color: #6a11cb;
+    background-image: linear-gradient(315deg, #6a11cb 0%, #2575fc 74%);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .back-btn:hover {
+    background-image: linear-gradient(315deg, #2575fc 0%, #6a11cb 74%);
+    transform: scale(1.05);
+  }
+  
+  /* Table Styling */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  thead {
+    background-color: #2575fc;
+    color: #ffffff;
+  }
+  
+  thead th {
+    padding: 15px 10px;
+    font-size: 1rem;
+    text-transform: uppercase;
+  }
+  
+  tbody tr {
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #eeeeee;
+  }
+  
+  tbody tr:hover {
+    background-color: #dceeff;
+  }
+  
+  td {
+    padding: 12px 10px;
+    font-size: 0.95rem;
+  }
+  

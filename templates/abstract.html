@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abstract - Heart Disease Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='abstract.css') }}">
+</head>
+<body>
+
+    <div class="background">
+        <div class="circle" style="top: 10%; left: 20%;"></div>
+        <div class="circle" style="top: 40%; left: 60%; width: 80px; height: 80px;"></div>
+        <div class="circle" style="top: 70%; left: 30%; width: 120px; height: 120px;"></div>
+    </div>
+
+    <div class="container">
+        <h1>Heart Disease Prediction - Abstract</h1>
+        <div class="content">
+            <p>
+                The early detection of heart disease plays a crucial role in reducing mortality rates. 
+                With advancements in machine learning, predictive models can now analyze patient data 
+                to assess the risk of heart disease. This project leverages state-of-the-art 
+                classification algorithms to provide accurate and reliable heart disease predictions. 
+                Utilizing real-world datasets and statistical analysis, our model aims to assist 
+                medical professionals in early diagnosis, ultimately improving patient outcomes.
+            </p>
+        </div>
+
+        <div class="buttons">
+            <a href="{{ url_for('model_accuracy') }}" class="btn">Model Accuracy</a>
+            <a href="{{ url_for('home') }}" class="btn">Back to Home</a>
+        </div>
+    </div>
+
+</body>
+</html>

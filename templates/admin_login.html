@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin_login.css') }}">
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <div class="navbar">
+        <a onclick="showSection('doctorForm')">Add Doctor</a>
+        <a onclick="showSection('trainingForm')">Add Training Data</a>
+        <a href="{{ url_for('view_users') }}">View User</a>
+        <a onclick="showSection('viewDoctorSection')">View Doctor</a>
+        <a href="{{ url_for('view_training_data') }}">View Training Data</a>
+        <a href="{{ url_for('view_feedback') }}">View Feedback</a>
+        <a href="{{ url_for('login') }}">Logout</a>
+    </div>
+
+    <!-- Add Doctor Form -->
+    <div class="container" id="doctorForm" style="display: none;">
+        <h2>Add Doctor</h2>
+        <form action="/add_doctor" method="POST">
+            <div class="input-group">
+                <label for="id_no">ID No</label>
+                <input type="text" id="id_no" name="id_no" required>
+            </div>
+            <div class="input-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="input-group">
+                <label for="specialization">Specialization</label>
+                <input type="text" id="specialization" name="specialization" required>
+            </div>
+            <div class="input-group">
+                <label for="location">Location</label>
+                <input type="text" id="location" name="location" required>
+            </div>
+            <button type="submit" class="btn">Add Doctor</button>
+        </form>
+    </div>
+
+    <!-- Add Training Data Form -->
+    <div class="container" id="trainingForm" style="display: none;">
+        <h2>Add Training Data</h2>
+        <form action="/add_training_data" method="POST">
+            <div class="input-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" required>
+            </div>
+            <div class="input-group">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="cholesterol">Cholesterol</label>
+                <input type="number" id="cholesterol" name="cholesterol" required>
+            </div>
+            <div class="input-group">
+                <label for="blood_pressure">Blood Pressure</label>
+                <input type="number" id="blood_pressure" name="blood_pressure" required>
+            </div>
+            <div class="input-group">
+                <label for="heart_rate">Heart Rate</label>
+                <input type="number" id="heart_rate" name="heart_rate" required>
+            </div>
+            <div class="input-group">
+                <label for="smoking">Smoking</label>
+                <select id="smoking" name="smoking" required>
+                    <option value="Never">Never</option>
+                    <option value="Former">Former</option>
+                    <option value="Current">Current</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="alcohol">Alcohol Intake</label>
+                <select id="alcohol" name="alcohol" required>
+                    <option value="None">None</option>
+                    <option value="Light">Light</option>
+                    <option value="Moderate">Moderate</option>
+                    <option value="Heavy">Heavy</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="exercise">Exercise Hours</label>
+                <input type="number" id="exercise" name="exercise" required>
+            </div>
+            <div class="input-group">
+                <label for="family_history">Family History</label>
+                <select id="family_history" name="family_history" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="diabetes">Diabetes</label>
+                <select id="diabetes" name="diabetes" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="obesity">Obesity</label>
+                <select id="obesity" name="obesity" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="stress">Stress Level</label>
+                <input type="number" id="stress" name="stress" required>
+            </div>
+            <div class="input-group">
+                <label for="blood_sugar">Blood Sugar</label>
+                <input type="number" id="blood_sugar" name="blood_sugar" required>
+            </div>
+            <div class="input-group">
+                <label for="angina">Exercise Induced Angina</label>
+                <select id="angina" name="angina" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="chest_pain">Chest Pain Type</label>
+                <select id="chest_pain" name="chest_pain" required>
+                    <option value="Typical Angina">Typical Angina</option>
+                    <option value="Atypical Angina">Atypical Angina</option>
+                    <option value="Non-anginal Pain">Non-anginal Pain</option>
+                    <option value="Asymptomatic">Asymptomatic</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="target">Target</label>
+                <select id="target" name="target" required>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+            
+            <button type="submit" class="btn">Submit Training Data</button>
+        </form>
+    </div>
+
+    <!-- View Doctors -->
+    <div class="container" id="viewDoctorSection" style="display: none;">
+        <h2>Doctors List</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Specialization</th>
+                    <th>Location</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for doctor in doctors %}
+                <tr>
+                    <td>{{ doctor.id }}</td>
+                    <td>{{ doctor.name }}</td>
+                    <td>{{ doctor.specialization }}</td>
+                    <td>{{ doctor.location }}</td>
+                </tr>
+                {% else %}
+                <tr><td colspan="4">No doctors found.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script src="{{ url_for('static', filename='admin_login.js') }}"></script>
+</body>
+</html>

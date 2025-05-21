@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Heart Disease Prediction</h1>
+        <form action="{{ url_for('predict') }}" method="post">
+            <label>Age:</label>
+            <input type="number" name="Age" required>
+            
+            <label>Gender:</label>
+            <select name="Gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+            
+            <label>Cholesterol:</label>
+            <input type="number" name="Cholesterol" required>
+            
+            <label>Blood Pressure:</label>
+            <input type="number" name="Blood_Pressure" required>
+            
+            <label>Heart Rate:</label>
+            <input type="number" name="Heart_Rate" required>
+            
+            <label>Smoking:</label>
+            <select name="Smoking">
+                <option value="Current">Current</option>
+                <option value="Never">Never</option>
+                <option value="Former">Former</option>
+            </select>
+            
+            <label>Alcohol Intake:</label>
+            <select name="Alcohol_Intake">
+                <option value="Heavy">Heavy</option>
+                <option value="None">None</option>
+                <option value="Moderate">Moderate</option>
+            </select>
+            
+            <label>Exercise Hours per Week:</label>
+            <input type="number" name="Exercise_Hours" required>
+            
+            <label>Family History:</label>
+            <select name="Family_History">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+            
+            <label>Diabetes:</label>
+            <select name="Diabetes">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+            
+            <label>Obesity:</label>
+            <select name="Obesity">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+            
+            <label>Stress Level (1-10):</label>
+            <input type="number" name="Stress_Level" required min="1" max="10">
+            
+            <label>Blood Sugar:</label>
+            <input type="number" name="Blood_Sugar" required>
+            
+            <label>Exercise Induced Angina:</label>
+            <select name="Exercise_Induced_Angina">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+            
+            <label>Chest Pain Type:</label>
+            <select name="Chest_Pain_Type">
+                <option value="Typical Angina">Typical Angina</option>
+                <option value="Atypical Angina">Atypical Angina</option>
+                <option value="Non-anginal Pain">Non-anginal Pain</option>
+                <option value="Asymptomatic">Asymptomatic</option>
+            </select>
+            
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+</html>

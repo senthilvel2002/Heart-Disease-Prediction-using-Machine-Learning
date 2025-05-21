@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Heart Disease Prediction Result</h1>
+
+        <div class="result">
+            <p class="emoji">{{ emoji }}</p>
+            <h2>{{ message }}</h2>
+        </div>
+
+        <div class="advice-box">
+            <h3>💡 Health Advice:</h3>
+            <p>{{ advice }}</p>
+        </div>
+
+        <div class="accuracy-box">
+            <h3>📊 Model Accuracy:</h3>
+            <p>{{ accuracy }}</p>
+        </div>
+
+        <!-- ✅ Show appointment option only if heart disease is detected -->
+        {% if message == "Heart Disease Detected 😞" %}
+        <div class="appointment-box">
+            <h3>👨‍⚕️ Need a Consultation?</h3>
+            <p>Based on your results, we recommend consulting a doctor.</p>
+            <a href="{{ url_for('doctors_list') }}" class="btn">📅 Book an Appointment</a>
+        </div>
+        {% endif %}
+
+        <a href="/" class="btn">🔙 Try Again</a>
+    </div>
+</body>
+</html>
